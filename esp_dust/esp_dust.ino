@@ -19,7 +19,7 @@ float concentration = 0;
 void setup() {
   Serial.begin(115200);
   pinMode(DUST, INPUT);
- starttime = millis();//get the current time;
+  starttime = millis();//get the current time;
   delay(10);
 
   // We start by connecting to a WiFi network
