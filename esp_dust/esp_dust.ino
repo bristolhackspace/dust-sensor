@@ -1,9 +1,7 @@
 /*
- *  This sketch sends data via HTTP GET requests to data.sparkfun.com service.
- *
- *  You need to get streamId and privateKey at data.sparkfun.com and paste them
- *  below. Or just customize this script to talk to other HTTP servers.
- *
+
+This is a blend of the sparkfun data demo for the ESP8266 and the grove dust sensor demo.
+
  */
 #include <ESP8266WiFi.h>
 #include "secrets.h"
