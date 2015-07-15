@@ -1,5 +1,3 @@
-
-
 /*
  *  This sketch sends data via HTTP GET requests to data.sparkfun.com service.
  *
@@ -7,16 +5,8 @@
  *  below. Or just customize this script to talk to other HTTP servers.
  *
  */
-
 #include <ESP8266WiFi.h>
-
-const char* ssid     = "hackspace";
-const char* password = "Altman37";
-
-const char* host = "data.sparkfun.com";
-const char* streamId   = "7JD1NG3mWNuGVqEpqWK0";
-const char* privateKey = "mzdg6kWyE6tGpKlbK9Ay";
-
+#include "secrets.h"
 #define DUST 2
 
 unsigned long duration;
@@ -56,7 +46,7 @@ int value = 0;
 
 void loop() {
  
-   duration = pulseIn(DUST, LOW);
+  duration = pulseIn(DUST, LOW);
   lowpulseoccupancy = lowpulseoccupancy+duration;
 
   if ((millis()-starttime) > sampletime_ms)//if the sampel time == 30s
@@ -71,44 +61,42 @@ void loop() {
     starttime = millis();
     
     
+    //send the data to sparkfun
     Serial.print("connecting to ");
-  Serial.println(host);
+    Serial.println(host);
+    
+    // Use WiFiClient class to create TCP connections
+    WiFiClient client;
+    const int httpPort = 80;
+    if (!client.connect(host, httpPort)) {
+      Serial.println("connection failed");
+      return;
+    }
+    
+    // We now create a URI for the request
+    String url = "/input/";
+    url += streamId;
+    url += "?private_key=";
+    url += privateKey;
+    url += "&dust=";
+    url += concentration;
+    
+    Serial.print("Requesting URL: ");
+    Serial.println(url);
+    
+    // This will send the request to the server
+    client.print(String("GET ") + url + " HTTP/1.1\r\n" +
+                 "Host: " + host + "\r\n" + 
+                 "Connection: close\r\n\r\n");
+    delay(10);
+    
+    // Read all the lines of the reply from server and print them to Serial
+    while(client.available()){
+      String line = client.readStringUntil('\r');
+      Serial.print(line);
+    }
   
-  // Use WiFiClient class to create TCP connections
-  WiFiClient client;
-  const int httpPort = 80;
-  if (!client.connect(host, httpPort)) {
-    Serial.println("connection failed");
-    return;
+    Serial.println();
+    Serial.println("closing connection");
   }
-  
-  // We now create a URI for the request
-  String url = "/input/";
-  url += streamId;
-  url += "?private_key=";
-  url += privateKey;
-  url += "&dust=";
-  url += concentration;
-  
-  Serial.print("Requesting URL: ");
-  Serial.println(url);
-  
-  // This will send the request to the server
-  client.print(String("GET ") + url + " HTTP/1.1\r\n" +
-               "Host: " + host + "\r\n" + 
-               "Connection: close\r\n\r\n");
-  delay(10);
-  
-  // Read all the lines of the reply from server and print them to Serial
-  while(client.available()){
-    String line = client.readStringUntil('\r');
-    Serial.print(line);
-  }
-  
-  Serial.println();
-  Serial.println("closing connection");
-  }
-  
-  
 }
-
