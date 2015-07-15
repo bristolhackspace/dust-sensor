@@ -25,3 +25,9 @@
 * [sparkfun visualisation with google
  charts](http://phant.io/graphing/google/2014/07/07/graphing-data/)
 * [sparkfun thing schematic](https://cdn.sparkfun.com/datasheets/Wireless/WiFi/SparkFun_ESP8266_Thing.pdf)
+
+## Licenses
+
+* Hardware is licensed under the [CERN open hardware license 1.2](http://www.ohwr.org/attachments/2388/cern_ohl_v_1_2.txt).
+
+* Software is licensed under a Creative Commons Attribution 4.0 International License.
