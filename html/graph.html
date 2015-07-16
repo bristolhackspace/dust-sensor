@@ -37,6 +37,13 @@
           chart.draw(data, {
             title: 'G10 Dust levels',
             height: 400,
+            hAxis: {
+                        format: 'd/M',
+                    },
+            vAxis: {
+                minValue: 0,
+                maxValue: 25000,
+                    },
           });
 
         });
@@ -56,5 +63,11 @@
   </head>
   <body>
     <div id="chart" style="width: 100%;"></div>
+    <p><ul>
+    <li><a href="http://bristol.hackspace.org.uk/wiki/doku.php?id=dust-sensor">wiki page</a></li>
+    <li><a href="https://data.sparkfun.com/streams/7JD1NG3mWNuGVqEpqWK0">raw data</a></li>
+    <li><a href="https://github.com/bristolhackspace/dust-sensor">github repo</a></li>
+
+    </ul></p>
   </body>
 </html>
