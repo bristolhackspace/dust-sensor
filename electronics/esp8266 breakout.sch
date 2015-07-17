@@ -1,5 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:esp8266 breakout-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -100,7 +99,7 @@ U 1 1 55A0E571
 P 4450 4850
 F 0 "U1" H 4750 4800 60  0000 C CNN
 F 1 "esp8266" H 5100 4800 60  0000 C CNN
-F 2 "kicadlibs:esp8266" H 5100 4550 60  0001 C CNN
+F 2 "custom:esp8266" H 5100 4550 60  0001 C CNN
 F 3 "" H 5100 4550 60  0000 C CNN
 	1    4450 4850
 	1    0    0    -1  
@@ -414,7 +413,7 @@ U 2 1 55A2DD85
 P 6900 4300
 F 0 "IC1" H 7125 4325 50  0000 L BNN
 F 1 "DS18B20" H 7125 4225 50  0000 L BNN
-F 2 "Housings_TO-92:TO-92_Molded_Narrow" H 6900 4450 50  0001 C CNN
+F 2 "onewire:1wire-TO92-" H 6900 4450 50  0001 C CNN
 F 3 "" H 6900 4300 60  0000 C CNN
 	2    6900 4300
 	1    0    0    -1  
@@ -425,7 +424,7 @@ U 3 1 55A2DDFA
 P 7300 4000
 F 0 "IC1" H 7525 4025 50  0000 L BNN
 F 1 "DS18B20" H 7525 3925 50  0000 L BNN
-F 2 "Housings_TO-92:TO-92_Molded_Narrow" H 7300 4150 50  0001 C CNN
+F 2 "onewire:1wire-TO92-" H 7300 4150 50  0001 C CNN
 F 3 "" H 7300 4000 60  0000 C CNN
 	3    7300 4000
 	1    0    0    -1  
