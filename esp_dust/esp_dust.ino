@@ -9,7 +9,7 @@ This is a blend of the sparkfun data demo for the ESP8266 and the grove dust sen
 
 unsigned long duration;
 unsigned long starttime;
-unsigned long sampletime_ms = 30000;//sampe 30s ;
+unsigned long sampletime_ms = 1000 * 60 * 5;//sample 5 mins
 unsigned long lowpulseoccupancy = 0;
 float ratio = 0;
 float concentration = 0;
