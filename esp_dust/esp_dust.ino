@@ -2,6 +2,8 @@
 
 This is a blend of the sparkfun data demo for the ESP8266 and the grove dust sensor demo.
 
+If we're using an esp12 then we could do the deep sleep in between samples.
+
  */
 #include <ESP8266WiFi.h>
 #include "secrets.h"
@@ -9,7 +11,7 @@ This is a blend of the sparkfun data demo for the ESP8266 and the grove dust sen
 
 unsigned long duration;
 unsigned long starttime;
-unsigned long sampletime_ms = 1000 * 60 * 5;//sample 5 mins
+unsigned long sampletime_ms = 1000 * 60 * 5;//sample 1 mins
 unsigned long lowpulseoccupancy = 0;
 float ratio = 0;
 float concentration = 0;
@@ -44,10 +46,15 @@ int value = 0;
 
 void loop() {
  
+  //try to make things more reliable
+  if (WiFi.status() != WL_CONNECTED) 
+  	ESP.restart();
+
   duration = pulseIn(DUST, LOW);
   lowpulseoccupancy = lowpulseoccupancy+duration;
 
-  if ((millis()-starttime) > sampletime_ms)//if the sampel time == 30s
+  //if we've reached the end of the sample time
+  if ((millis()-starttime) > sampletime_ms)
   {
     ratio = lowpulseoccupancy/(sampletime_ms*10.0);  // Integer percentage 0=>100
     concentration = 1.1*pow(ratio,3)-3.8*pow(ratio,2)+520*ratio+0.62; // using spec sheet curve
