@@ -9,7 +9,7 @@ If we're using an esp12 then we could do the deep sleep in between samples.
 #include "secrets.h"
 #define DUST 2
 #define TX 1 //led attached
-#define MAX_CONC 20000 //this is the highest we'll ever get. Often value is much higher - due to sensor plug bouncing (module won't boot if sensor in place), or sensor on its side seems to make a difference too.
+#define MAX_CONC 20000 //this is the highest we'll ever get. Value can be much higher if sensor on its side.
 
 unsigned long duration;
 unsigned long starttime;
