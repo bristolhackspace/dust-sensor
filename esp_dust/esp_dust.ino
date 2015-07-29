@@ -13,7 +13,7 @@ If we're using an esp12 then we could do the deep sleep in between samples.
 
 unsigned long duration;
 unsigned long starttime;
-unsigned long sampletime_ms = 1000 * 60 * 1;//sample 5 mins
+unsigned long sampletime_ms = 1000 * 60 * 1;//sample every 1 mins
 unsigned long lowpulseoccupancy = 0;
 float ratio = 0;
 float concentration = 0;
