@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 1">
+   sodipodi:docname="label.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -31,9 +31,9 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1440"
-     inkscape:window-height="876"
-     inkscape:window-x="0"
+     inkscape:window-width="1615"
+     inkscape:window-height="1026"
+     inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1" />
   <metadata
@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -70,7 +70,8 @@
          sodipodi:role="line"
          x="123.02271"
          y="443.83932"
-         id="tspan2993">http://ven.nz/dust-sens</tspan></text>
+         id="tspan2993"
+         style="font-size:30px">http://ven.nz/dust-sensor</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:64px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -86,25 +87,7 @@
        y="259.42206"
        x="125.92896"
        id="image3065"
-       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAACCCAIAAAAFYYeqAAAAA3NCSVQICAjb4U/gAAADgklEQVR4
-nO2dQXLDIAxFk062uf9Bc4HuUhamIEtyXmbeW3U8GJP+ETISyPdbNa/X6/D68/lctpkxu3e8fppZ
-hzs/pIqf8h7lBMqA4PH+KzpRjMzsdMd+d9osJ6LoxDIbQLSfqn+a1oBAGRAoA4LH4dXofL3TZuxz
-1n+mzxAZZxbtc2T2A7UGBMqAQBkQHPuGKnZ8QGY6fvcTDUJk3vc70BoQKAMCZUDQ6xui03R0PfFu
-XxWU/pT/0BoQKAMCZUBw7BuqpsXoVBuNQZU8tMofZO7VGhAoAwJlQPDnGzr2fUSJpoU/7jOq/mla
-AwJlQKAMCO6oyHsmR73sZEZmj1MVWgMCZUCgDAjup+8szyffitYHOw8a6fAl0etaAwJlQKAMCO6H
-W31Gql6rO17JT591yOw3rfonjGgNCJQBgTIg+Fs3dB8fGynZmzS2qcoNdPuVGVoDAmVAoAwI1vmG
-khzAP/3s9LmcpqMObIeOihKefUOjDAiUAcE635AJo49k7l1SNYAdMoueGVoDAmVAoAwIYvmGkW4/
-MaMkRx2NO2UCZTv3ag0IlAGBMiCoORcdLU+0U7ou1OeVeYKODVpaAwJlQKAMCGL5hqocQ/lr+2XF
-OZLPMt+ARhkQKAOCx2E6t6q29kim/PVyKs8U55jRXWDcdQMOZUAQO5BLq7N5ekbteDHdaWOgG40y
-IFAGBI/lTJoJPOy0r3ru6RurXnYzP1BrQKAMCJQBQc3myRkd/uD0SYAOqtYrWgMCZUCgDAjWxaGj
-8d5M4HrGZRsmP3Ka+KY1QFAGBMqA4Hyxhqr6ZrM+Z4Q2y1RtbhzpWDxpDQiUAYEyIFj7hpGq3MMO
-oWm96kGZuT5T8UhrQKAMCJQBQeyDYx0+INr/6aVA9Maq/U477bUGBMqAQBkQ1MSUduiotx8a8IzW
-rxX8M56xf60BgTIgUAYEvR8cu/Ksw+FDZ2TiP9H2O9e1BgTKgEAZEJz/4NgMWip4OZiOAm7uU/pK
-lAGBMiA4jilF6QjpzNoc0hELmvU/w/MNX48yIFAGBMe56E+FZXaedTi27krV3Ye6tQYEyoBAGRDU
-FIfeYTYFl3w4oMrxZNpn1itaAwJlQKAMCK7zDVU1+U+fe6haxGScnDElNMqAQBkQxM43ZMjkFUrG
-0/GBmRHXDV+PMiBQBgTX7VOq2gZaPoCOcwzR/IfWgEAZECgDgl8du7fQ33rO7gAAAABJRU5ErkJg
-gg==
-"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAACCCAIAAAAFYYeqAAAAA3NCSVQICAjb4U/gAAADgklEQVR4 nO2dQXLDIAxFk062uf9Bc4HuUhamIEtyXmbeW3U8GJP+ETISyPdbNa/X6/D68/lctpkxu3e8fppZ hzs/pIqf8h7lBMqA4PH+KzpRjMzsdMd+d9osJ6LoxDIbQLSfqn+a1oBAGRAoA4LH4dXofL3TZuxz 1n+mzxAZZxbtc2T2A7UGBMqAQBkQHPuGKnZ8QGY6fvcTDUJk3vc70BoQKAMCZUDQ6xui03R0PfFu XxWU/pT/0BoQKAMCZUBw7BuqpsXoVBuNQZU8tMofZO7VGhAoAwJlQPDnGzr2fUSJpoU/7jOq/mla AwJlQKAMCO6oyHsmR73sZEZmj1MVWgMCZUCgDAjup+8szyffitYHOw8a6fAl0etaAwJlQKAMCO6H W31Gql6rO17JT591yOw3rfonjGgNCJQBgTIg+Fs3dB8fGynZmzS2qcoNdPuVGVoDAmVAoAwI1vmG khzAP/3s9LmcpqMObIeOihKefUOjDAiUAcE635AJo49k7l1SNYAdMoueGVoDAmVAoAwIYvmGkW4/ MaMkRx2NO2UCZTv3ag0IlAGBMiCoORcdLU+0U7ou1OeVeYKODVpaAwJlQKAMCGL5hqocQ/lr+2XF OZLPMt+ARhkQKAOCx2E6t6q29kim/PVyKs8U55jRXWDcdQMOZUAQO5BLq7N5ekbteDHdaWOgG40y IFAGBI/lTJoJPOy0r3ru6RurXnYzP1BrQKAMCJQBQc3myRkd/uD0SYAOqtYrWgMCZUCgDAjWxaGj 8d5M4HrGZRsmP3Ka+KY1QFAGBMqA4Hyxhqr6ZrM+Z4Q2y1RtbhzpWDxpDQiUAYEyIFj7hpGq3MMO oWm96kGZuT5T8UhrQKAMCJQBQeyDYx0+INr/6aVA9Maq/U477bUGBMqAQBkQ1MSUduiotx8a8IzW rxX8M56xf60BgTIgUAYEvR8cu/Ksw+FDZ2TiP9H2O9e1BgTKgEAZEJz/4NgMWip4OZiOAm7uU/pK lAGBMiA4jilF6QjpzNoc0hELmvU/w/MNX48yIFAGBMe56E+FZXaedTi27krV3Ye6tQYEyoBAGRDU FIfeYTYFl3w4oMrxZNpn1itaAwJlQKAMCK7zDVU1+U+fe6haxGScnDElNMqAQBkQxM43ZMjkFUrG 0/GBmRHXDV+PMiBQBgTX7VOq2gZaPoCOcwzR/IfWgEAZECgDgl8du7fQ33rO7gAAAABJRU5ErkJg gg== "
        height="130"
        width="130" />
   </g>

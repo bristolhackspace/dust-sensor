@@ -14,11 +14,7 @@
 * add cap between DTR & reset for programming
 * caps on power rail and decoupling on ESP
 * change sensor pin to gpio2 as when connected to gpio0 forces programming mode
-
-## Bugs
-
-* why does sensor plugged in stop upload of code working?
-* sometimes won't boot unless sensor is unplugged (PSU quality issue)
+* built a mini transistor not gate to fix code loading and booting bugs (wouldn't boot because gpio2 was held high by dust monitor)
 
 [This](http://www.esp8266.com/viewtopic.php?f=13&t=1730) explains that gpio0 & 2
 both need to be high (or floating) for a normal boot. So with the dust sensor
