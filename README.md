@@ -20,6 +20,10 @@
 * why does sensor plugged in stop upload of code working?
 * sometimes won't boot unless sensor is unplugged (PSU quality issue)
 
+[This](http://www.esp8266.com/viewtopic.php?f=13&t=1730) explains that gpio0 & 2
+both need to be high (or floating) for a normal boot. So with the dust sensor
+connected on gpio2, it will often not boot.
+
 ## Links
 
 * [sparkfun visualisation with google
