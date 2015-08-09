@@ -25,17 +25,18 @@ If we're using an esp12 then we could do the deep sleep in between samples.
 
 int state = NOT_CONNECTED;
 
-void setup() {
-  Serial.begin(9600);
-  Serial.println();
-  Serial.println();
+void setup()
+{
+    Serial.begin(9600);
+    Serial.println();
+    Serial.println();
 
-  // update number of times rebooted
-  setupEEPROM();
-  EEPROMWriteInt(EEP_REBOOTS, EEPROMReadInt(EEP_REBOOTS) + 1);
+    // update number of times rebooted
+    setupEEPROM();
+    EEPROMWriteInt(EEP_REBOOTS, EEPROMReadInt(EEP_REBOOTS) + 1);
 
-  // pin modes
-  pinMode(DUST, INPUT);
+    // pin modes
+    pinMode(DUST, INPUT);
 }
 
 void loop()
@@ -54,15 +55,15 @@ void loop()
         }
         case SAMPLING:
         {
-            int duration = pulseIn(DUST, HIGH);
-            lowpulseoccupancy = lowpulseoccupancy+duration;
             if((millis() - start_time) > SAMPLETIME_MS)
                 state = CHECK_WIFI;
+            else
+                lowpulseoccupancy += pulseIn(DUST, HIGH);
             break;
         }
         case CHECK_WIFI:
         {
-            if (WiFi.status() != WL_CONNECTED) 
+            if(WiFi.status() != WL_CONNECTED) 
                 state = NOT_CONNECTED;
             else
                 state = POSTING;
@@ -82,8 +83,7 @@ void loop()
 }
 
 void post(long lowpulseoccupancy)
-  //if we've reached the end of the sample time
-  {
+{
     float ratio = lowpulseoccupancy/(SAMPLETIME_MS*10.0);  // Integer percentage 0=>100
     float concentration = 1.1*pow(ratio,3)-3.8*pow(ratio,2)+520*ratio+0.62; // using spec sheet curve
     Serial.print("concentration = ");
@@ -104,7 +104,7 @@ void post(long lowpulseoccupancy)
     // Use WiFiClient class to create TCP connections
     WiFiClient client;
     const int httpPort = 80;
-    if (!client.connect(host, httpPort)) 
+    if(!client.connect(host, httpPort)) 
     {
         Serial.println("connection failed");
         return;
@@ -154,6 +154,7 @@ void start_wifi()
         delay(500);
         Serial.print(".");
     }
+
     Serial.println("");
     Serial.println("WiFi connected");  
     Serial.println("IP address: ");
