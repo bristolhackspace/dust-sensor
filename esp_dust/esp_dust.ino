@@ -1,10 +1,14 @@
 /*
-
 This is a blend of the sparkfun data demo for the ESP8266 and the grove dust sensor demo.
 
 If we're using an esp12 then we could do the deep sleep in between samples.
 
- */
+using LCD library from https://github.com/carlosefr/pcd8544
+PCD8544 - Interface with Philips PCD8544 (or compatible) LCDs.
+Copyright (c) 2010 Carlos Rodrigues <cefrodrigues@gmail.com>
+*/
+
+#include <PCD8544.h>
 #include <ESP8266WiFi.h>
 #include "secrets.h"
 #define DUST 16
@@ -23,14 +27,7 @@ If we're using an esp12 then we could do the deep sleep in between samples.
 #define CHECK_WIFI 3
 #define POSTING 4
 
-/*
- * PCD8544 - Interface with Philips PCD8544 (or compatible) LCDs.
- * Copyright (c) 2010 Carlos Rodrigues <cefrodrigues@gmail.com>
- * using library from https://github.com/carlosefr/pcd8544
- */
-#include <PCD8544.h>
 static PCD8544 lcd(5,4,12,13,14);
-
 
 int state = NOT_CONNECTED;
 int last_state = -1;
