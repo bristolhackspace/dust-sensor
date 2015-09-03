@@ -35,9 +35,6 @@ void update_lcd(unsigned long lowpulseoccupancy)
     Serial.println("updating lcd");
     lcd.clear();
     lcd.setCursor(0, 0);
-    lcd.print("state:");
-    yield();
-    lcd.setCursor(0, 1);
     switch(state)
     {
         case NOT_CONNECTED:
@@ -54,21 +51,24 @@ void update_lcd(unsigned long lowpulseoccupancy)
             break;
     }
     yield();
-    lcd.setCursor(0, 2);
-    lcd.print("dust level:");
-    yield();
 
-    lcd.setCursor(0,3);
+    lcd.setCursor(0, 2);
+    lcd.print("LPO:");
     lcd.print(lowpulseoccupancy);
     yield();
 
-    lcd.setCursor(0,4);
-    lcd.print("boots:");
-    lcd.print(EEPROMReadInt(EEP_REBOOTS));
-
+    lcd.setCursor(0, 3);
+    lcd.print("time:");
+    lcd.print(millis()/1000);
     yield();
-    lcd.setCursor(0,5);
-    lcd.print("recon:");
+
+    lcd.setCursor(0, 4);
+    lcd.print("reboots:");
+    lcd.print(EEPROMReadInt(EEP_REBOOTS));
+    yield();
+
+    lcd.setCursor(0, 5);
+    lcd.print("reconns:");
     lcd.print(EEPROMReadInt(EEP_WIFI_CONN));
     yield();
 }
