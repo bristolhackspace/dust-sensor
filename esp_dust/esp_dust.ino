@@ -7,11 +7,11 @@ If we're using an esp12 then we could do the deep sleep in between samples.
  */
 #include <ESP8266WiFi.h>
 #include "secrets.h"
-#define DUST 2
-#define TX 1 //led attached
+#define DUST 16
 #define MAX_CONC 20000 //this is the highest we'll ever get. Value can be much higher if sensor on its side.
 
 #define SAMPLETIME_MS 1000 * 60 * 1 //sample every 1 mins
+#define LCD_UPDATE_TIME 1000
 
 // eeprom addresses (storing 2byte ints so each address is +2)
 #define EEP_WIFI_CONN 0
@@ -23,10 +23,23 @@ If we're using an esp12 then we could do the deep sleep in between samples.
 #define CHECK_WIFI 3
 #define POSTING 4
 
+/*
+ * PCD8544 - Interface with Philips PCD8544 (or compatible) LCDs.
+ * Copyright (c) 2010 Carlos Rodrigues <cefrodrigues@gmail.com>
+ * using library from https://github.com/carlosefr/pcd8544
+ */
+#include <PCD8544.h>
+static PCD8544 lcd(5,4,12,13,14);
+
+
 int state = NOT_CONNECTED;
+int last_state = -1;
 
 void setup()
 {
+    lcd.begin(84, 48);
+    lcd.setContrast(50);
+
     Serial.begin(9600);
     Serial.println();
     Serial.println();
@@ -42,12 +55,26 @@ void setup()
 void loop()
 {
     static unsigned long start_time;
+    static unsigned long lcd_time;
     static long lowpulseoccupancy;
+
+    if(last_state != state)
+    {
+        last_state = state;
+        update_lcd(lowpulseoccupancy);
+    }
+    if((millis() - lcd_time) > LCD_UPDATE_TIME)
+    {
+        lcd_time = millis();
+        update_lcd(lowpulseoccupancy);
+    }
+
+    delay(5);
+
     switch(state)
     {
         case NOT_CONNECTED:
         {
-            flash_status_led();
             start_wifi();
             EEPROMWriteInt(EEP_WIFI_CONN, EEPROMReadInt(EEP_WIFI_CONN) + 1);
             state = SAMPLING;
@@ -58,7 +85,7 @@ void loop()
             if((millis() - start_time) > SAMPLETIME_MS)
                 state = CHECK_WIFI;
             else
-                lowpulseoccupancy += pulseIn(DUST, HIGH);
+                lowpulseoccupancy += pulseIn(DUST, LOW);
             break;
         }
         case CHECK_WIFI:
@@ -71,7 +98,6 @@ void loop()
         }
         case POSTING:
         {
-            flash_status_led();
             post(lowpulseoccupancy);
             start_time = millis();
             lowpulseoccupancy = 0;
@@ -79,7 +105,7 @@ void loop()
             break;
         }
     }
-    delay(10);
+
 }
 
 void post(long lowpulseoccupancy)

@@ -30,21 +30,45 @@ unsigned int EEPROMReadInt(int address)
   return ((two << 0) & 0xFF) + ((one << 8) & 0xFFFF); 
 }
 
-void flash_status_led()
+void update_lcd(unsigned long lowpulseoccupancy)
 {
-    // led is on same pin as TX
-    Serial.flush();
-    Serial.end();
-    pinMode(TX,OUTPUT);
-
-    // flash a number corresponding with the current state
-    for(int i = 0; i < state; i ++)
+    Serial.println("updating lcd");
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("state:");
+    yield();
+    lcd.setCursor(0, 1);
+    switch(state)
     {
-      digitalWrite(TX,true);
-      delay(200);
-      digitalWrite(TX,false);
-      delay(200);
+        case NOT_CONNECTED:
+            lcd.print("not connected");
+            break;
+        case SAMPLING:
+            lcd.print("sampling");
+            break;
+        case CHECK_WIFI:
+            lcd.print("checking wifi");
+            break;
+        case POSTING:
+            lcd.print("posting");
+            break;
     }
+    yield();
+    lcd.setCursor(0, 2);
+    lcd.print("dust level:");
+    yield();
 
-    Serial.begin(9600);
+    lcd.setCursor(0,3);
+    lcd.print(lowpulseoccupancy);
+    yield();
+
+    lcd.setCursor(0,4);
+    lcd.print("boots:");
+    lcd.print(EEPROMReadInt(EEP_REBOOTS));
+
+    yield();
+    lcd.setCursor(0,5);
+    lcd.print("recon:");
+    lcd.print(EEPROMReadInt(EEP_WIFI_CONN));
+    yield();
 }
