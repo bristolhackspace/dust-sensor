@@ -85,7 +85,8 @@ void loop()
             if((millis() - start_time) > SAMPLETIME_MS)
                 state = CHECK_WIFI;
             else
-                lowpulseoccupancy += pulseIn(DUST, LOW);
+                //wait for low pulse, timeout after 100ms
+                lowpulseoccupancy += pulseIn(DUST, LOW, 100);
             break;
         }
         case CHECK_WIFI:
@@ -179,6 +180,7 @@ void start_wifi()
     {
         delay(500);
         Serial.print(".");
+        update_lcd(0);
     }
 
     Serial.println("");
