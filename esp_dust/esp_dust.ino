@@ -9,6 +9,7 @@ PCD8544 - Interface with Philips PCD8544 (or compatible) LCDs.
 Copyright (c) 2010 Carlos Rodrigues <cefrodrigues@gmail.com>
 */
 
+#include <pgmspace.h>
 #include <PCD8544.h>
 #include <ESP8266WiFi.h>
 #include "secrets.h"
@@ -83,8 +84,8 @@ void loop()
             if((millis() - start_time) > SAMPLETIME_MS)
                 state = CHECK_WIFI;
             else
-                //wait for low pulse, timeout after 100ms
-                lowpulseoccupancy += pulseIn(DUST, LOW, 100);
+                //wait for low pulse, timeout after 1000ms
+                lowpulseoccupancy += pulseIn(DUST, LOW, 1000);
             break;
         }
         case CHECK_WIFI:
