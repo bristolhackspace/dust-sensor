@@ -4,6 +4,7 @@ This is a blend of the sparkfun data demo for the ESP8266 and the grove dust sen
 If we're using an esp12 then we could do the deep sleep in between samples.
 
 using LCD library from https://github.com/carlosefr/pcd8544
+needed to change avr/pgmspace.h -> pgmspace.h to work with esp8266
 PCD8544 - Interface with Philips PCD8544 (or compatible) LCDs.
 Copyright (c) 2010 Carlos Rodrigues <cefrodrigues@gmail.com>
 */
