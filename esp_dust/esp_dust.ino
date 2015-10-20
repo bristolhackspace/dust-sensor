@@ -84,8 +84,8 @@ void loop()
             if((millis() - start_time) > SAMPLETIME_MS)
                 state = CHECK_WIFI;
             else
-                //wait for low pulse, timeout after 1000ms
-                lowpulseoccupancy += pulseIn(DUST, LOW, 1000);
+                //wait for low pulse, timeout after 500ms
+                lowpulseoccupancy += pulseIn(DUST, LOW, 500 * 1000);
             break;
         }
         case CHECK_WIFI:
