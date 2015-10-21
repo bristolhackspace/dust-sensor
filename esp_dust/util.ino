@@ -52,6 +52,10 @@ void update_lcd(unsigned long lowpulseoccupancy)
     }
     yield();
 
+    lcd.setCursor(0, 1);
+    lcd.print(WiFi.localIP());
+    yield();
+
     lcd.setCursor(0, 2);
     lcd.print("LPO:");
     lcd.print(lowpulseoccupancy);

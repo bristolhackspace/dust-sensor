@@ -37,7 +37,7 @@ int last_state = -1;
 void setup()
 {
     lcd.begin(84, 48);
-    lcd.setContrast(50);
+    lcd.setContrast(70);
 
     Serial.begin(9600);
     Serial.println();
