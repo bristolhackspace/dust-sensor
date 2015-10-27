@@ -11,11 +11,11 @@
       // onload callback
       function drawChart() {
 
-        var public_key = '7JD1NG3mWNuGVqEpqWK0';
+        var public_key = "vOd6vB1ZN1hpYL96VgzMtOr29N1";
 
         // JSONP request
         var jsonData = $.ajax({
-          url: 'https://data.sparkfun.com/output/' + public_key + '.json',
+          url: 'http://phant.cursivedata.co.uk/' + public_key + '.json',
           data: {'sample': 5, 'gte' :{'timestamp' : 'now - 7 days'}},
           dataType: 'jsonp',
 	  
