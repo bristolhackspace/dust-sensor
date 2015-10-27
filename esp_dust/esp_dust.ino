@@ -14,9 +14,9 @@ Copyright (c) 2010 Carlos Rodrigues <cefrodrigues@gmail.com>
 #include <ESP8266WiFi.h>
 #include "secrets.h"
 #define DUST 16
-#define MAX_CONC 20000 //this is the highest we'll ever get. Value can be much higher if sensor on its side.
+#define MAX_CONC 500000 //this is the highest we'll ever get. Value can be much higher if sensor on its side.
 
-#define SAMPLETIME_MS 1000 * 60 * 1 //sample every 1 mins
+#define SAMPLETIME_MS 30000 //sample every 30 secs
 #define LCD_UPDATE_TIME 1000
 
 // eeprom addresses (storing 2byte ints so each address is +2)
@@ -68,8 +68,6 @@ void loop()
         update_lcd(lowpulseoccupancy);
     }
 
-    delay(5);
-
     switch(state)
     {
         case NOT_CONNECTED:
@@ -85,7 +83,7 @@ void loop()
                 state = CHECK_WIFI;
             else
                 //wait for low pulse, timeout after 500ms
-                lowpulseoccupancy += pulseIn(DUST, LOW, 500 * 1000);
+                lowpulseoccupancy += pulseIn(DUST, LOW);
             break;
         }
         case CHECK_WIFI:
