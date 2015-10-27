@@ -11,12 +11,12 @@
       // onload callback
       function drawChart() {
 
-        var public_key = '7JD1NG3mWNuGVqEpqWK0';
+        var public_key = "vOd6vB1ZN1hpYL96VgzMtOr29N1";
 
         // JSONP request
         var jsonData = $.ajax({
-          url: 'https://data.sparkfun.com/output/' + public_key + '.json',
-          data: {'sample': 5, 'gte' :{'timestamp' : 'now - 7 days'}},
+          url: 'http://phant.cursivedata.co.uk/output/' + public_key + '.json',
+          data: {'sample': 1, 'gte' :{'timestamp' : 'now - 7 days'}},
           dataType: 'jsonp',
 	  
         }).done(function (results) {
@@ -66,7 +66,7 @@
     <div id="chart" style="width: 100%;"></div>
     <p><ul>
     <li><a href="http://bristol.hackspace.org.uk/wiki/doku.php?id=dust-sensor">wiki page</a></li>
-    <li><a href="https://data.sparkfun.com/streams/7JD1NG3mWNuGVqEpqWK0">raw data</a></li>
+    <li><a href="http://phant.cursivedata.co.uk/streams/vOd6vB1ZN1hpYL96VgzMtOr29N1">raw data</a></li>
     <li><a href="https://github.com/bristolhackspace/dust-sensor">github repo</a></li>
 
     </ul></p>
