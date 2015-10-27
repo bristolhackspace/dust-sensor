@@ -62,11 +62,13 @@ void loop()
         last_state = state;
         update_lcd(lowpulseoccupancy);
     }
+    /*
     if((millis() - lcd_time) > LCD_UPDATE_TIME)
     {
         lcd_time = millis();
         update_lcd(lowpulseoccupancy);
     }
+    */
 
     switch(state)
     {
