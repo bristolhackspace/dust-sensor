@@ -32,7 +32,8 @@ unsigned int EEPROMReadInt(int address)
 
 void update_lcd(unsigned long lowpulseoccupancy)
 {
-    Serial.println("updating lcd");
+    //long start = millis();
+    //Serial.println("updating lcd");
     lcd.clear();
     lcd.setCursor(0, 0);
     switch(state)
@@ -50,29 +51,24 @@ void update_lcd(unsigned long lowpulseoccupancy)
             lcd.print("posting");
             break;
     }
-    yield();
 
     lcd.setCursor(0, 1);
     lcd.print(WiFi.localIP());
-    yield();
 
     lcd.setCursor(0, 2);
     lcd.print("LPO:");
     lcd.print(lowpulseoccupancy);
-    yield();
 
     lcd.setCursor(0, 3);
     lcd.print("time:");
     lcd.print(millis()/1000);
-    yield();
 
     lcd.setCursor(0, 4);
     lcd.print("reboots:");
     lcd.print(EEPROMReadInt(EEP_REBOOTS));
-    yield();
 
     lcd.setCursor(0, 5);
     lcd.print("reconns:");
     lcd.print(EEPROMReadInt(EEP_WIFI_CONN));
-    yield();
+    //Serial.println(millis()-start);
 }
